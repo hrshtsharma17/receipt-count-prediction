@@ -1,6 +1,3 @@
-import sys
-sys.path.append('/Users/harshitsharma/CoStacks/Fetch')
-
 import os
 import pandas as pd
 from datetime import datetime
