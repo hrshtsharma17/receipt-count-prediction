@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Receipt Count Prediction</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Receipt Count Prediction App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/hrshtsharma17/receipt-count-prediction">Github</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+    <div class="row align-items-center">
+        <div class="col">
+            <div class="prediction_page">
+                <div class="form">
+                    <form action="{{url_for('predict')}}" method="POST">
+                        Month: <input type="text" name='date' placeholder="Enter the Month (MM) and Year (YYYY) as MM-YYYY ex. 12-2022"><br>
+                        <input type="submit" value="Predict The Count!" class="submit">
+                    </form>
+                    <p>Predicted receipt count is: {{data}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="image">
+                <img src="{{ url_for('static', filename='images/forecast_plot.png') }}" alt="forecast-plot"
+                    class="form-image">
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
